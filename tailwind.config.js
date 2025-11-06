@@ -9,10 +9,10 @@ module.exports = {
     extend: {
       colors: {
         federico: {
-          orange: '#E87456',
-          black: '#000000',
-          gray: '#6B6B6B',
-          lightgray: '#F8F8F8',
+          orange: '#FF6B35',
+          black: '#1a1a1a',
+          gray: '#4a4a4a',
+          lightgray: '#f5f5f5',
         },
       },
       fontFamily: {

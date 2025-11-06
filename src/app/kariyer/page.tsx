@@ -200,7 +200,7 @@ const CareerPage = () => {
                 />
               </div>
 
-              <button type="submit" className="btn-primary w-full">
+              <button type="submit" className="bg-federico-orange text-white px-8 py-4 text-sm font-medium hover:bg-opacity-90 transition-all duration-200 w-full">
                 Başvur
               </button>
             </form>

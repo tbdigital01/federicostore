@@ -24,7 +24,7 @@ const OnlineSalesPage = () => {
               href="https://federicostore.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center gap-2"
+              className="bg-federico-orange text-white px-8 py-4 text-sm font-medium hover:bg-opacity-90 transition-all duration-200 inline-flex items-center gap-2"
             >
               Alışverişe Başla
               <ArrowRight size={16} />
