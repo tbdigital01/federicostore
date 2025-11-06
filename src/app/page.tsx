@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Store, ShoppingBag, Briefcase, Users, Coffee, Heart, Award } from 'lucide-react'
+import { ArrowRight, Store, ShoppingBag, Briefcase, Users } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const HomePage = () => {
@@ -10,13 +10,13 @@ const HomePage = () => {
     {
       icon: Store,
       title: 'Şubelerimiz',
-      description: 'En yakın Federico',
+      description: 'Gazipaşa, Temsa, Vagoon',
       href: '/subelerimiz',
     },
     {
       icon: ShoppingBag,
-      title: 'Online Satış',
-      description: 'Mağazamızı keşfedin',
+      title: 'Online Mağaza',
+      description: 'federicostore.com',
       href: '/online-satis',
     },
     {
@@ -33,89 +33,100 @@ const HomePage = () => {
     },
   ]
 
-  const features = [
-    {
-      icon: Coffee,
-      title: 'Özel Kahveler',
-      description: 'Dünyadan seçilmiş, özenle kavrulan çekirdekler',
-    },
-    {
-      icon: Heart,
-      title: 'Tutku ile Hazırlanır',
-      description: 'Uzman barista ekibimizin el emeği',
-    },
-    {
-      icon: Award,
-      title: 'Kalite Garantisi',
-      description: 'Her fincanda mükemmellik standardı',
-    },
+  const instagramImages = [
+    'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&q=80',
+    'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80',
+    'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80',
+    'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=80',
+    'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80',
+    'https://images.unsplash.com/photo-1501492673258-eecdb8fe3c00?w=400&q=80',
   ]
 
   return (
     <>
-      {/* Hero Section - Görsel ve Metin */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center bg-federico-black pt-20">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=80"
             alt="Federico Coffee"
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-30"
             priority
           />
         </div>
         
         <div className="container-custom relative z-10 px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-4xl"
           >
-            <h1 className="text-6xl md:text-8xl font-serif mb-6 text-white">
+            <h1 className="text-7xl md:text-9xl font-serif mb-8 text-white leading-none">
               Kahvenin<br />Ötesinde
             </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Federico, her fincan kahveyle hayatınıza dokunan, sıradanın dışında bir deneyim sunar.
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl">
+              Sakinliğin içinde. Her fincan, bir ritüel. Her an, bir deneyim.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/subelerimiz" className="bg-federico-orange text-white px-8 py-4 text-sm font-medium hover:bg-opacity-90 transition-all duration-200 inline-flex items-center gap-2">
-                Şubelerimizi Keşfedin
+              <Link href="/hakkimizda" className="bg-federico-orange text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300 inline-flex items-center gap-3">
+                Hikayemiz
                 <ArrowRight size={18} />
               </Link>
-              <Link href="/online-satis" className="border-2 border-white text-white px-8 py-4 text-sm font-medium hover:bg-white hover:text-federico-black transition-all duration-200">
-                Online Mağaza
+              <Link href="/subelerimiz" className="border-2 border-white text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-white hover:text-federico-black transition-all duration-300">
+                Şubelerimiz
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Quick Links Grid - Kartlar */}
+      {/* Philosophy Quote */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <blockquote className="text-3xl md:text-5xl font-serif text-federico-black leading-tight mb-8">
+              "Federico'da zaman acele etmez,<br />kahve soğumaz,<br />insanlar birbirine gülümser."
+            </blockquote>
+            <p className="text-sm uppercase tracking-widest text-federico-gray">
+              Marka Felsefemiz
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Quick Links */}
+      <section className="py-24 bg-federico-lightgray">
+        <div className="container-custom px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {quickLinks.map((link, index) => {
               const Icon = link.icon
               return (
                 <motion.div
                   key={link.href}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
                   <Link
                     href={link.href}
-                    className="block border border-gray-200 p-8 hover:border-federico-orange hover:shadow-lg transition-all duration-300 group"
+                    className="block bg-white p-10 hover:shadow-2xl transition-all duration-500 group h-full"
                   >
-                    <div className="w-12 h-12 bg-federico-orange bg-opacity-10 rounded-full flex items-center justify-center mb-4 group-hover:bg-federico-orange transition-all duration-300">
+                    <div className="w-14 h-14 bg-federico-orange bg-opacity-10 flex items-center justify-center mb-6 group-hover:bg-federico-orange transition-all duration-300">
                       <Icon className="text-federico-orange group-hover:text-white transition-colors duration-300" size={24} />
                     </div>
-                    <h3 className="text-lg font-serif mb-2 text-federico-black">
+                    <h3 className="text-xl font-serif mb-2 text-federico-black">
                       {link.title}
                     </h3>
-                    <p className="text-sm text-federico-gray">{link.description}</p>
+                    <p className="text-sm text-federico-gray uppercase tracking-wider">{link.description}</p>
                   </Link>
                 </motion.div>
               )
@@ -124,43 +135,105 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* About Section - Görsel + Metin */}
-      <section className="section-padding bg-federico-lightgray">
+      {/* Story Section */}
+      <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative h-[500px] rounded-lg overflow-hidden"
+            >
+              <p className="text-xs uppercase tracking-widest text-federico-orange mb-6">
+                2020'den Bugüne
+              </p>
+              <h2 className="text-4xl md:text-6xl font-serif mb-8 text-federico-black leading-tight">
+                Pandemiyle<br />Başlayan Bir<br />Kahve Hikayesi
+              </h2>
+              <div className="space-y-6 text-base text-federico-gray leading-relaxed">
+                <p>
+                  Federico'nun hikayesi, tüm dünyanın yavaşladığı, insanların evlerinde kendileriyle 
+                  baş başa kaldığı bir dönemde başladı.
+                </p>
+                <p>
+                  Pandemi sürecinde, bir fincan iyi kahvenin yalnızca bir içecek değil; aynı zamanda 
+                  bir moral, bir ritüel, bir huzur anı olduğunu fark ettik.
+                </p>
+                <p>
+                  Federico, doğduğu şehir olan Adana'nın sıcaklığını, İtalyan kahve kültürünün 
+                  zarafetiyle birleştirdi.
+                </p>
+              </div>
+              <Link href="/hakkimizda" className="inline-flex items-center gap-2 mt-8 text-sm uppercase tracking-widest text-federico-black hover:text-federico-orange transition-colors duration-300">
+                Hikayenin Devamı
+                <ArrowRight size={16} />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative h-[600px]"
             >
               <Image
                 src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80"
-                alt="Federico Coffee Interior"
+                alt="Federico Coffee"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section className="section-padding bg-federico-black text-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative h-[500px]"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&q=80"
+                alt="Federico Çekirdek Kahve"
                 fill
                 className="object-cover"
               />
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-serif mb-6 text-federico-black">
-                Kahve, Bir<br />Deneyimdir
+              <p className="text-xs uppercase tracking-widest text-federico-orange mb-6">
+                Kendi Kavurduğumuz
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
+                Özel Çekirdekler
               </h2>
-              <p className="text-base text-federico-gray leading-relaxed mb-6">
-                Federico, özenle seçilmiş kahve çekirdekleri ve uzman barista dokunuşuyla, 
-                sıradanın dışında bir deneyim sunar. Her fincan, bir hikaye anlatır.
-              </p>
-              <p className="text-base text-federico-gray leading-relaxed mb-8">
-                Sadece kahve sunmuyoruz; anlar yaratıyor, topluluğumuzla özel bağlar kuruyoruz.
-              </p>
-              <Link href="/hakkimizda" className="bg-federico-black text-white px-8 py-3.5 text-sm font-medium hover:bg-opacity-90 transition-all duration-200 inline-flex items-center gap-2">
-                Hikayemizi Keşfedin
+              <div className="space-y-6 text-base text-gray-300 leading-relaxed">
+                <p>
+                  Federico, kahve tedarik zincirinde aracıların ötesine geçerek kendi özel 
+                  çekirdeklerini seçer ve kavurur.
+                </p>
+                <p>
+                  Her kavurma işlemi, tazeliği ve lezzeti ön planda tutacak şekilde günlük olarak yapılır.
+                </p>
+                <p>
+                  Bizim için her fincan kahve bir coğrafyanın, bir emeğin, bir yolculuğun temsilcisidir.
+                </p>
+              </div>
+              <Link href="/online-satis" className="inline-flex items-center gap-2 mt-8 text-sm uppercase tracking-widest text-white hover:text-federico-orange transition-colors duration-300">
+                Online Mağaza
                 <ArrowRight size={16} />
               </Link>
             </motion.div>
@@ -168,107 +241,62 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Features - 3 Kolon */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-4 text-federico-black">
-              Neden Federico?
-            </h2>
-            <p className="text-federico-gray max-w-2xl mx-auto">
-              Kahve tutkusunu yaşam tarzına dönüştüren üç temel değerimiz
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {features.map((feature, index) => {
-              const Icon = feature.icon
-              return (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 bg-federico-orange rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Icon className="text-white" size={28} />
-                  </div>
-                  <h3 className="text-xl font-serif mb-3 text-federico-black">{feature.title}</h3>
-                  <p className="text-sm text-federico-gray leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </motion.div>
-              )
-            })}
-          </div>
+      {/* Instagram */}
+      <section className="py-0 bg-white">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+          {instagramImages.map((src, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              className="aspect-square relative overflow-hidden group cursor-pointer"
+            >
+              <Image
+                src={src}
+                alt={`Federico ${index + 1}`}
+                fill
+                className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-federico-orange opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+            </motion.div>
+          ))}
+        </div>
+        <div className="text-center py-12">
+          <a
+            href="https://instagram.com/federicocoffee"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs uppercase tracking-widest text-federico-gray hover:text-federico-orange transition-colors"
+          >
+            @federicocoffee
+          </a>
         </div>
       </section>
 
-      {/* Gallery Section - Instagram tarzı */}
-      <section className="section-padding bg-federico-lightgray">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-federico-black">
-              Günlük Ritüellerimiz
-            </h2>
-            <p className="text-federico-gray">
-              Instagram'da <a href="https://instagram.com/federicocoffee" target="_blank" className="text-federico-orange hover:underline">@federicocoffee</a>
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[
-              'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&q=80',
-              'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80',
-              'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80',
-              'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=80',
-              'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80',
-              'https://images.unsplash.com/photo-1501492673258-eecdb8fe3c00?w=400&q=80',
-            ].map((src, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="aspect-square relative overflow-hidden group cursor-pointer"
-              >
-                <Image
-                  src={src}
-                  alt={`Federico Coffee ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="section-padding bg-federico-orange text-white">
         <div className="container-custom text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-serif mb-6">
-              Federico Ailesine Katılın
+            <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-tight">
+              Federico Ailesine<br />Katılın
             </h2>
-            <p className="text-lg mb-8 text-white text-opacity-90 leading-relaxed">
-              Franchise fırsatlarımızı keşfedin veya kariyer yolculuğunuza bizimle başlayın.
+            <p className="text-lg mb-10 leading-relaxed opacity-90">
+              Franchise fırsatlarımızı keşfedin veya kariyer yolculuğunuza bizimle başlayın
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/franchise" className="bg-white text-federico-orange px-8 py-4 text-sm font-medium hover:bg-opacity-90 transition-all duration-200">
-                Franchise Başvurusu
+              <Link href="/franchise" className="bg-white text-federico-orange px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300">
+                Franchise
               </Link>
-              <Link href="/kariyer" className="border-2 border-white text-white px-8 py-4 text-sm font-medium hover:bg-white hover:text-federico-orange transition-all duration-200">
-                İş Başvurusu
+              <Link href="/kariyer" className="border-2 border-white text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-white hover:text-federico-orange transition-all duration-300">
+                Kariyer
               </Link>
             </div>
           </motion.div>
