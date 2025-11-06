@@ -40,19 +40,19 @@ const Navbar = () => {
           <div className="flex-1 overflow-hidden">
             <div className="animate-marquee whitespace-nowrap">
               <span className="text-xs tracking-wider inline-block px-8">
-                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
+                ✨ Yeni bir ritüel başlıyor. Federico yakında Gürselpaşa'da
               </span>
               <span className="text-xs tracking-wider inline-block px-8">
-                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
+                ✨ Yeni bir ritüel başlıyor. Federico yakında Gürselpaşa'da
               </span>
               <span className="text-xs tracking-wider inline-block px-8">
-                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
+                ✨ Yeni bir ritüel başlıyor. Federico yakında Gürselpaşa'da
               </span>
               <span className="text-xs tracking-wider inline-block px-8">
-                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
+                ✨ Yeni bir ritüel başlıyor. Federico yakında Gürselpaşa'da
               </span>
               <span className="text-xs tracking-wider inline-block px-8">
-                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
+                ✨ Yeni bir ritüel başlıyor. Federico yakında Gürselpaşa'da
               </span>
             </div>
           </div>
