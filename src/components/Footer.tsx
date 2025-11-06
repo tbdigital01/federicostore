@@ -29,26 +29,26 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-federico-black text-white">
+    <footer className="bg-white border-t border-gray-100">
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
           {/* Marka */}
           <div>
-            <h3 className="text-3xl font-serif font-bold mb-4">Federico</h3>
-            <p className="text-gray-400 leading-relaxed">
-              Kahvenin ötesinde, sıradanın dışında. Federico ile her yudum bir deneyim.
+            <h3 className="text-xl font-serif mb-4">Federico</h3>
+            <p className="text-sm text-federico-gray leading-relaxed max-w-xs">
+              Kahvenin ötesinde, sıradanın dışında.
             </p>
           </div>
 
           {/* Hızlı Bağlantılar */}
           <div>
-            <h4 className="text-xl font-semibold mb-4">Hızlı Bağlantılar</h4>
+            <h4 className="text-xs uppercase tracking-wider text-federico-gray mb-4">Bağlantılar</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-federico-orange transition-colors"
+                    className="text-sm text-federico-gray hover:text-federico-black transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -59,7 +59,7 @@ const Footer = () => {
 
           {/* Sosyal Medya */}
           <div>
-            <h4 className="text-xl font-semibold mb-4">Bizi Takip Edin</h4>
+            <h4 className="text-xs uppercase tracking-wider text-federico-gray mb-4">Takip Edin</h4>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon
@@ -69,10 +69,10 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-federico-gray p-3 rounded-full hover:bg-federico-orange transition-all duration-300 hover:scale-110"
+                    className="text-federico-gray hover:text-federico-black transition-colors duration-200"
                     aria-label={social.label}
                   >
-                    <Icon size={24} />
+                    <Icon size={20} />
                   </a>
                 )
               })}
@@ -81,8 +81,8 @@ const Footer = () => {
         </div>
 
         {/* Alt Bilgi */}
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>© 2025 Federico Coffee. Tüm hakları saklıdır.</p>
+        <div className="pt-8 border-t border-gray-100 text-center">
+          <p className="text-xs text-federico-gray">© 2025 Federico Coffee. Tüm hakları saklıdır.</p>
         </div>
       </div>
     </footer>
@@ -90,4 +90,3 @@ const Footer = () => {
 }
 
 export default Footer
-

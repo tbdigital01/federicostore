@@ -13,13 +13,12 @@ const WhatsAppButton = () => {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 z-50 animate-bounce"
+      className="fixed bottom-8 right-8 bg-[#25D366] text-white w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 z-50 flex items-center justify-center hover:scale-105"
       aria-label="WhatsApp ile İletişim"
     >
-      <MessageCircle size={28} />
+      <MessageCircle size={24} />
     </a>
   )
 }
 
 export default WhatsAppButton
-

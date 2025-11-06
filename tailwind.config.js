@@ -9,15 +9,15 @@ module.exports = {
     extend: {
       colors: {
         federico: {
-          orange: '#FF6B35',
-          black: '#1a1a1a',
-          gray: '#333333',
-          cream: '#F5F5F0',
+          orange: '#E87456',
+          black: '#000000',
+          gray: '#6B6B6B',
+          lightgray: '#F8F8F8',
         },
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'serif'],
       },
     },
   },
