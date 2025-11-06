@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 const Navbar = () => {
@@ -38,9 +39,16 @@ const Navbar = () => {
           {/* Logo */}
           <Link 
             href="/" 
-            className="text-xl font-serif tracking-tight text-federico-black"
+            className="flex items-center"
           >
-            Federico
+            <Image
+              src="/logo.png"
+              alt="Federico Coffee"
+              width={140}
+              height={40}
+              className="h-8 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Menu */}

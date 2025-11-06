@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Instagram, Youtube, Music2 } from 'lucide-react'
 
 const Footer = () => {
@@ -34,7 +35,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
           {/* Marka */}
           <div>
-            <h3 className="text-xl font-serif mb-4">Federico</h3>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/logo.png"
+                alt="Federico Coffee"
+                width={140}
+                height={40}
+                className="h-7 w-auto"
+              />
+            </Link>
             <p className="text-sm text-federico-gray leading-relaxed max-w-xs">
               Kahvenin ötesinde, sıradanın dışında.
             </p>
