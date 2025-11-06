@@ -20,7 +20,6 @@ const Navbar = () => {
   const navLinks = [
     { href: '/hakkimizda', label: 'Hakkımızda' },
     { href: '/subelerimiz', label: 'Şubeler' },
-    { href: '/online-satis', label: 'Mağaza' },
     { href: '/franchise', label: 'Franchise' },
     { href: '/kariyer', label: 'Kariyer' },
     { href: '/iletisim', label: 'İletişim' },
@@ -127,6 +126,13 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/online-satis"
+                className="flex items-center space-x-2 bg-federico-orange text-white px-6 py-2.5 text-sm tracking-wide hover:bg-opacity-90 transition-all duration-200 group"
+              >
+                <ShoppingBag size={16} className="group-hover:scale-110 transition-transform duration-200" />
+                <span>FEDERICO STORE</span>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -154,34 +160,34 @@ const Navbar = () => {
                   </Link>
                 ))}
                 
-                {/* Mobile Social & Store */}
-                <div className="pt-6 border-t border-gray-100">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      {socialLinks.map((social) => {
-                        const Icon = social.icon
-                        return (
-                          <a
-                            key={social.href}
-                            href={social.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-federico-gray hover:text-federico-black transition-colors duration-200"
-                            aria-label={social.label}
-                          >
-                            <Icon size={18} />
-                          </a>
-                        )
-                      })}
-                    </div>
-                    <Link
-                      href="/online-satis"
-                      className="flex items-center space-x-2 text-sm text-federico-orange hover:text-federico-black transition-colors duration-200"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <ShoppingBag size={18} />
-                      <span>STORE</span>
-                    </Link>
+                {/* Mobile Store Button */}
+                <Link
+                  href="/online-satis"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center space-x-2 bg-federico-orange text-white px-6 py-3.5 text-sm tracking-wide hover:bg-opacity-90 transition-all duration-200"
+                >
+                  <ShoppingBag size={18} />
+                  <span>FEDERICO STORE</span>
+                </Link>
+                
+                {/* Mobile Social */}
+                <div className="pt-4 border-t border-gray-100">
+                  <div className="flex items-center justify-center space-x-6">
+                    {socialLinks.map((social) => {
+                      const Icon = social.icon
+                      return (
+                        <a
+                          key={social.href}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-federico-gray hover:text-federico-orange transition-colors duration-200"
+                          aria-label={social.label}
+                        >
+                          <Icon size={20} />
+                        </a>
+                      )
+                    })}
                   </div>
                 </div>
               </div>
