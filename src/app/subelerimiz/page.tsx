@@ -2,55 +2,55 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { MapPin, Clock, Phone, Navigation } from 'lucide-react'
+import { MapPin, Clock, Phone, Navigation, Sparkles } from 'lucide-react'
 
 const BranchesPage = () => {
   const branches = [
     {
       id: 1,
+      name: 'Federico Gürselpaşa',
+      subtitle: 'Yeni Ritüel — 2024',
+      address: 'Gürselpaşa Mahallesi, Adana',
+      phone: '+90 (322) 456 78 90',
+      hours: 'Her Gün: 07:00 - 23:00',
+      description: 'Federico\'nun yeni dönemini simgeleyen mağazamız. Şeffaf mutfakta her sabah taze pişen pastalar, dengeyle hazırlanmış salata ve bowl çeşitleri, özenle seçilmiş kahvaltılar. Sadece kahve değil, günün her anına eşlik eden tam bir deneyim.',
+      image: 'https://images.unsplash.com/photo-1501492673258-eecdb8fe3c00?w=800&q=80',
+      features: ['Şeffaf Mutfak', 'Bakery', 'Bowl & Salata', 'Kahvaltı', 'Federico Life (Yakında)'],
+      isNew: true,
+    },
+    {
+      id: 2,
       name: 'Gazipaşa Toros Caddesi',
       subtitle: 'İlk Şubemiz — 2021',
       address: 'Gazipaşa Mahallesi, Toros Caddesi, Adana',
       phone: '+90 (322) 123 45 67',
       hours: 'Hafta İçi: 08:00 - 23:00 | Hafta Sonu: 09:00 - 24:00',
-      description: 'Modern şehir hayatının içinde sade, sıcak ve minimalist bir kaçış noktası. Federico\'nun ruhunu belirleyen ilk mağaza.',
+      description: 'Federico\'nun ruhunu belirleyen ilk mağaza. Minimalist, sakin, lokal ve samimi bir atmosfer. İtalyan kahve kültürünün zarif sadeliğini, Adana\'nın sıcaklığıyla buluşturduk. Fazla değil, öz.',
       image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80',
       features: ['WiFi', 'Çalışma Alanı', 'Outdoor', 'Kahvaltı'],
     },
     {
-      id: 2,
+      id: 3,
       name: 'Temsa Fabrikası',
       subtitle: 'Konteyner Mağaza — 2024',
       address: 'Temsa Fabrikası İçi, Organize Sanayi Bölgesi, Adana',
       phone: '+90 (322) 234 56 78',
       hours: 'Hafta İçi: 07:00 - 19:00 | Cumartesi: 08:00 - 15:00',
-      description: 'Endüstriyel bir alanda bile sıcak, minimalist bir atmosfer. Çalışanlara gün boyu enerji veren kahve durağı.',
+      description: 'Endüstriyel alanda bile sıcak, sade ve huzurlu bir atmosfer. Federico\'nun yenilikçi ve modüler mağaza anlayışının ilk örneği. Çalışanlara gün boyu enerji veren kahve durağı.',
       image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&q=80',
       features: ['WiFi', 'Hızlı Servis', 'Takeaway', 'Otopark'],
     },
     {
-      id: 3,
+      id: 4,
       name: 'Vagoon',
       subtitle: 'Mobil Şube — 2022',
       address: 'Festival ve etkinliklerde gezen mobil kahve aracımız',
       phone: '+90 (555) 123 45 67',
-      hours: 'Etkinlik programına göre değişir',
-      description: 'Festival alanlarında ve açık hava etkinliklerinde kurulan gezici Federico. "İyi kahve her yerde mümkün" anlayışı.',
+      hours: 'Etkinlik programına göre',
+      description: 'Kahveyi sokağa taşıyan gezici konseptimiz. "Her yerde iyi kahve" mottosunun somut hali. Festival alanlarında, açık hava konserlerinde Federico deneyimi.',
       image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80',
       features: ['Mobil', 'Festival', 'Etkinlik', 'Açık Hava'],
       isMobile: true,
-    },
-    {
-      id: 4,
-      name: 'Yeni Şube',
-      subtitle: 'Yakında',
-      address: 'Adana',
-      phone: 'Yakında',
-      hours: 'Yakında Açılıyor',
-      description: 'Federico\'nun genişleyen dünyası. Taze hazırlanmış atıştırmalıklar, günlük pastalar, salata ve bowl çeşitleri ile tam teşekküllü deneyim.',
-      image: 'https://images.unsplash.com/photo-1501492673258-eecdb8fe3c00?w=800&q=80',
-      features: ['Bakery', 'Bowl & Salata', 'Kahvaltı', 'Full Menu'],
-      isComingSoon: true,
     },
   ]
 
@@ -80,6 +80,9 @@ const BranchesPage = () => {
             <h1 className="text-6xl md:text-8xl font-serif mb-8 text-white leading-none">
               Size En Yakın<br />Federico
             </h1>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              4 farklı noktada, aynı özen ve sadelik
+            </p>
           </motion.div>
         </div>
       </section>
@@ -107,9 +110,10 @@ const BranchesPage = () => {
                       fill
                       className="object-cover"
                     />
-                    {(branch.isMobile || branch.isComingSoon) && (
-                      <div className="absolute top-6 right-6 bg-federico-orange text-white px-6 py-3 uppercase tracking-wider text-xs font-medium">
-                        {branch.isMobile ? 'Mobil' : 'Yakında'}
+                    {(branch.isNew || branch.isMobile) && (
+                      <div className="absolute top-6 right-6 bg-federico-orange text-white px-6 py-3 uppercase tracking-wider text-xs font-medium flex items-center gap-2">
+                        {branch.isNew && <Sparkles size={14} />}
+                        {branch.isNew ? 'Yeni' : 'Mobil'}
                       </div>
                     )}
                   </div>
@@ -131,7 +135,7 @@ const BranchesPage = () => {
                       {branch.features.map((feature) => (
                         <span
                           key={feature}
-                          className="border border-gray-200 text-federico-gray px-4 py-2 text-xs uppercase tracking-wider"
+                          className="border border-gray-200 text-federico-gray px-4 py-2 text-xs uppercase tracking-wider hover:border-federico-orange hover:text-federico-orange transition-colors duration-200"
                         >
                           {feature}
                         </span>
@@ -139,7 +143,7 @@ const BranchesPage = () => {
                     </div>
 
                     {/* Contact Info */}
-                    {!branch.isComingSoon && (
+                    {!branch.isMobile && (
                       <div className="space-y-4 mb-8">
                         <div className="flex items-start gap-4">
                           <MapPin className="text-federico-orange flex-shrink-0 mt-1" size={20} />
@@ -157,7 +161,7 @@ const BranchesPage = () => {
                     )}
 
                     {/* Button */}
-                    {!branch.isMobile && !branch.isComingSoon && (
+                    {!branch.isMobile && (
                       <button className="bg-federico-black text-white px-8 py-4 text-xs uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300 inline-flex items-center gap-3">
                         <Navigation size={18} />
                         Yol Tarifi
@@ -168,6 +172,32 @@ const BranchesPage = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Gürselpaşa Highlight */}
+      <section className="section-padding bg-federico-orange text-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <Sparkles size={48} className="mx-auto mb-6 opacity-90" />
+            <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
+              Gürselpaşa'da Yeni Bir Ritüel
+            </h2>
+            <p className="text-lg leading-relaxed opacity-90 mb-8">
+              Federico'nun en kapsamlı mağazası. Şeffaf mutfak, günlük taze üretim, 
+              bakery, bowl, salata ve yakında Federico Life koleksiyonu. 
+              Kahvenin ötesinde, tam bir yaşam deneyimi.
+            </p>
+            <button className="bg-white text-federico-orange px-8 py-4 text-xs uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300">
+              Gürselpaşa'yı Keşfet
+            </button>
+          </motion.div>
         </div>
       </section>
 

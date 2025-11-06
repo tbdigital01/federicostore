@@ -1,32 +1,34 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 
 const AboutPage = () => {
   const milestones = [
     {
-      year: '2020',
-      title: 'Pandemiyle Başlayan Hikaye',
-      description: 'Tüm dünyanın yavaşladığı dönemde, online satışla başlayan küçük bir serüven. Bir fincan iyi kahvenin sadece içecek değil, bir moral, bir ritüel olduğunu fark ettik.',
+      year: '2020–2021',
+      title: 'Online Satışla Başlayan Bir Hikaye',
+      description: 'Pandemiyle birlikte kahveye ulaşmanın en zor olduğu dönemde başladık. İyi kahveye ulaşmanın bir lüks değil, ihtiyaç olduğunu düşündük. Kendi kavurduğumuz taze çekirdekleri Türkiye\'nin her yerine göndermeye başladık.',
       image: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80',
     },
     {
       year: '2021',
       title: 'İlk Şube: Gazipaşa Toros Caddesi',
-      description: 'Adana Gazipaşa Toros Caddesi\'nde ilk fiziksel noktamız açıldı. Modern şehir hayatının içinde sade, sıcak ve minimalist bir kaçış noktası.',
+      description: 'Online satışın gördüğü büyük ilgi, fiziksel bir deneyimin doğmasını sağladı. Minimalist, sakin, lokal ve samimi bir atmosfer. İtalyan kahve kültürünün zarif sadeliğini, Adana\'nın sıcaklığıyla buluşturduk. Fazla değil, öz.',
       image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80',
     },
     {
       year: '2022',
-      title: 'Vagoon ve Etkinlikler',
-      description: 'Kahveyi daha fazla insana ulaştırmak için Vagoon Festival\'de yer aldık. Festival alanlarında gezici Federico kioskları, "iyi kahve her yerde mümkün" anlayışını yaydı.',
+      title: 'Vagoon ve Etkinliklerde Dolaşan Federico',
+      description: 'Kahveyi sokağa taşıdık. Vagoon Festival\'de yer alarak "Her yerde iyi kahve" mottosunu hayata geçirdik. İnsanlar Federico logosunu gördüğünde artık yalnızca bir kahve değil, iyi his, kaliteli zaman ve özgün bir deneyim hatırladı.',
       image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80',
     },
     {
       year: '2024',
       title: 'Temsa Fabrikası Konteyner Mağaza',
-      description: 'Temsa fabrikasındaki konteyner mağaza, çalışanlara gün boyu enerji veren bir kahve durağı. Endüstriyel alanda bile sıcak, minimalist bir atmosfer.',
+      description: 'Yeni bir dönemin başlangıcı. Endüstriyel alanda bile sıcak, sade ve huzurlu bir atmosfer. Federico\'nun yenilikçi ve modüler mağaza anlayışının ilk örneği olarak büyüme vizyonunu şekillendirdi.',
       image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&q=80',
     },
   ]
@@ -55,7 +57,7 @@ const AboutPage = () => {
               Hakkımızda
             </p>
             <h1 className="text-6xl md:text-8xl font-serif mb-8 text-white leading-none">
-              Kahvenin Ötesinde,<br />Sakinliğin İçinde
+              Kahvenin Ötesinde,<br />Artık Yaşamın İçinde
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Federico, 2020'den bugüne uzanan bir kahve hikayesi
@@ -64,7 +66,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Opening Quote */}
+      {/* Opening */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <motion.div
@@ -75,16 +77,15 @@ const AboutPage = () => {
             className="max-w-4xl mx-auto"
           >
             <p className="text-2xl md:text-3xl font-serif text-federico-black leading-relaxed">
-              Federico'nun hikayesi, tüm dünyanın yavaşladığı, insanların evlerinde kendileriyle 
-              baş başa kaldığı bir dönemde başladı. Pandemi sürecinde, bir fincan iyi kahvenin 
-              yalnızca bir içecek değil; aynı zamanda bir moral, bir ritüel, bir huzur anı 
-              olduğunu fark ettik.
+              Federico'nun hikayesi, kahveye ulaşmanın en zor olduğu bir dönemde başladı. 
+              Pandemiyle birlikte insanların evlerinden çıkamadığı, birçok işletmenin kapılarını 
+              kapattığı günlerde, biz bu duruma farklı bir gözle baktık.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Milestones */}
+      {/* Milestones Timeline */}
       {milestones.map((milestone, index) => (
         <section
           key={milestone.year}
@@ -131,7 +132,7 @@ const AboutPage = () => {
         </section>
       ))}
 
-      {/* Roasting */}
+      {/* Online Store */}
       <section className="section-padding bg-federico-black text-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -142,27 +143,29 @@ const AboutPage = () => {
               viewport={{ once: true }}
             >
               <p className="text-xs uppercase tracking-widest text-federico-orange mb-6">
-                Kendi Kavurduğumuz
+                federicostore.com
               </p>
               <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
-                Özel Çekirdekler
+                Tüm Türkiye'ye
               </h2>
               <div className="space-y-6 text-base text-gray-300 leading-relaxed">
                 <p>
-                  Federico, kahve tedarik zincirinde aracıların ötesine geçerek kendi özel 
-                  çekirdeklerini seçer ve kavurur.
+                  Online satış serüvenimiz sadece başlangıçtı. Bugün federicostore.com, 
+                  Federico'nun en geniş mağazası olarak Türkiye'nin her yerine ulaşıyor.
                 </p>
                 <p>
-                  Her kavurma işlemi, tazeliği ve lezzeti ön planda tutacak şekilde günlük olarak yapılır.
-                </p>
-                <p>
-                  Yöresel kahveler, özel harmanlar, mevsimlik single-origin çekirdekler; 
-                  her biri, kahvenin doğduğu toprağın hikayesini taşır.
+                  Kendi kavurduğumuz özel çekirdek kahveler, yöresel kahve çeşitleri, 
+                  demleme ekipmanları ve aksesuarlar, her gün taptaze olarak gönderiliyor.
                 </p>
                 <p className="text-white font-serif text-lg">
-                  Bizim için her fincan kahve bir coğrafyanın, bir emeğin, bir yolculuğun temsilcisidir.
+                  Sadece bir e-ticaret platformu değil — kahve kültürünü dijital dünyaya taşıyan, 
+                  Federico ruhunu evlere ulaştıran bir alan.
                 </p>
               </div>
+              <Link href="/online-satis" className="inline-flex items-center gap-2 mt-8 text-sm uppercase tracking-widest text-white hover:text-federico-orange transition-colors duration-300">
+                Online Mağaza
+                <ArrowRight size={16} />
+              </Link>
             </motion.div>
 
             <motion.div
@@ -174,7 +177,7 @@ const AboutPage = () => {
             >
               <Image
                 src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&q=80"
-                alt="Kahve Çekirdekleri"
+                alt="Federico Online"
                 fill
                 className="object-cover"
               />
@@ -183,7 +186,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* New Store */}
+      {/* Roasting */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-16">
@@ -194,38 +197,106 @@ const AboutPage = () => {
               viewport={{ once: true }}
             >
               <p className="text-xs uppercase tracking-widest text-federico-orange mb-6">
-                Yeni Dönem
+                Kendi Kavurduğumuz
               </p>
               <h2 className="text-4xl md:text-5xl font-serif mb-8 text-federico-black leading-tight">
-                Federico'nun Genişleyen Dünyası
+                Özel Çekirdekler
               </h2>
-              <p className="text-lg text-federico-gray leading-relaxed">
-                Artık sadece kahve değil; günün her saatine eşlik edebilecek lezzetli ve sağlıklı 
-                seçenekler de sunuyoruz. Taze hazırlanmış atıştırmalıklar, günlük pastalar, 
-                dengeli salata ve bowl çeşitleri, özenle seçilmiş kahvaltı alternatifleri.
+              <p className="text-lg text-federico-gray leading-relaxed mb-8">
+                Federico'nun merkezinde kahve çekirdeği var. Kahvelerimiz, dünyanın farklı bölgelerinden 
+                özenle seçilen yeşil çekirdeklerden oluşur. Bu çekirdekler Adana'daki kavurma tesisimizde, 
+                küçük partiler halinde, her kavrulma gününde taze olarak hazırlanır.
               </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                {['Özel Harmanlar', 'Single-Origin', 'Espresso & Filtre', 'Mikro-Lot Seriler'].map((item) => (
+                  <div key={item}>
+                    <p className="text-sm font-medium text-federico-black">{item}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: 'Bakery', desc: 'Günlük taze pastalar' },
-              { title: 'Bowl & Salata', desc: 'Dengeli ve sağlıklı' },
-              { title: 'Kahvaltı', desc: 'Özenle hazırlanmış' },
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <h3 className="text-2xl font-serif mb-3 text-federico-black">{item.title}</h3>
-                <p className="text-sm text-federico-gray">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+      {/* Gürselpaşa - Big Highlight */}
+      <section className="section-padding bg-federico-orange text-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto"
+          >
+            <p className="text-xs uppercase tracking-widest text-white opacity-80 mb-6 text-center">
+              Yeni Bir Ritüel Başlıyor
+            </p>
+            <h2 className="text-5xl md:text-7xl font-serif mb-12 text-center leading-tight">
+              Federico Gürselpaşa
+            </h2>
+            
+            <div className="space-y-8 text-lg leading-relaxed opacity-90 mb-12">
+              <p>
+                Federico'nun yeni dönemini simgeleyen Gürselpaşa Şubesi, markamızın "yaşam markası"na 
+                dönüşümünün başlangıcı. Bu yeni mekân, sadece kahve değil; günün her anına eşlik eden 
+                bir deneyim sunuyor.
+              </p>
+              <p>
+                Her sabah taze pişen pastalar ve bakery ürünleri, dengeyle hazırlanmış salata ve bowl çeşitleri, 
+                taze içerikli kahvaltı ve atıştırmalık tabakları, doğal malzemelerle yapılan içecekler ve tatlılar 
+                ile Federico artık bir kafe değil, yeni bir ritüelin adresi haline geliyor.
+              </p>
+              <p>
+                Gürselpaşa'daki mağazamızda ayrıca bir <strong>şeffaf üretim mutfağı</strong> bulunuyor. 
+                Burada her ürün, Federico kahvesi gibi günlük, sade ve özenle hazırlanıyor.
+              </p>
+              <p className="text-2xl font-serif">
+                "Mutfaktan gelen taze hamur kokusu, kahvenin aromasıyla birleştiğinde mekânın atmosferi 
+                tamamen Federico'ya özgü bir ruh kazanıyor."
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center py-12 border-t border-b border-white border-opacity-30">
+              {['Bakery', 'Bowl & Salata', 'Kahvaltı', 'Şeffaf Mutfak'].map((item) => (
+                <div key={item}>
+                  <p className="text-sm uppercase tracking-wider font-medium">{item}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <Link href="/subelerimiz" className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-white hover:opacity-80 transition-opacity duration-300 border-b border-white pb-1">
+                Gürselpaşa Şubesini Keşfet
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Federico Life */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <p className="text-xs uppercase tracking-widest text-federico-orange mb-6">
+              Yakında
+            </p>
+            <h2 className="text-4xl md:text-5xl font-serif mb-8 text-federico-black leading-tight">
+              Federico Life
+            </h2>
+            <p className="text-lg text-federico-gray leading-relaxed">
+              Yakında bu mekânda yalnızca yiyecek ve içecek değil, markanın ruhunu taşıyan özel 
+              tekstil ürünleri, aksesuarlar ve koleksiyon parçaları da yer alacak. Hepsi sınırlı sayıda, 
+              özenle tasarlanmış ve Federico'nun sade estetiğini yansıtan ürünler olacak.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -243,14 +314,14 @@ const AboutPage = () => {
               Marka Felsefemiz
             </p>
             <blockquote className="text-3xl md:text-4xl font-serif text-federico-black leading-tight mb-12">
-              Federico'nun özünde sadeleşmek, yavaşlamak ve anı yaşamak vardır.
-              <br /><br />
-              Minimalizm bizim için bir trend değil, bir yaşam biçimidir.
+              Federico; hızlı akan bir dünyada yavaşlamayı, kalabalıklar içinde sadeleşmeyi, 
+              ve her yudumda gerçek olana dönmeyi savunur.
             </blockquote>
-            <div className="space-y-4 text-lg text-federico-gray">
-              <p>Federico'da zaman acele etmez,</p>
-              <p>kahve soğumaz,</p>
-              <p>insanlar birbirine gülümser.</p>
+            <div className="space-y-4 text-lg text-federico-gray leading-relaxed">
+              <p>Bizim için kahve bir içecek değil; bir duruş, bir nefes, bir denge anıdır.</p>
+              <p>Federico'da kahve aceleyle içilmez.</p>
+              <p>Zaman biraz yavaşlar, müzik hafifler, sohbet başlar.</p>
+              <p>O anın içinde sadece kahve değil, bir bütünlük vardır.</p>
             </div>
           </motion.div>
         </div>

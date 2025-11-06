@@ -10,7 +10,7 @@ const HomePage = () => {
     {
       icon: Store,
       title: 'Şubelerimiz',
-      description: 'Gazipaşa, Temsa, Vagoon',
+      description: 'Gazipaşa, Gürselpaşa, Temsa',
       href: '/subelerimiz',
     },
     {
@@ -67,15 +67,15 @@ const HomePage = () => {
               Kahvenin<br />Ötesinde
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl">
-              Sakinliğin içinde. Her fincan, bir ritüel. Her an, bir deneyim.
+              Artık yaşamın içinde. Yeni bir ritüelin adresi.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/hakkimizda" className="bg-federico-orange text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300 inline-flex items-center gap-3">
-                Hikayemiz
+              <Link href="/subelerimiz" className="bg-federico-orange text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300 inline-flex items-center gap-3">
+                Gürselpaşa Yeni Şube
                 <ArrowRight size={18} />
               </Link>
-              <Link href="/subelerimiz" className="border-2 border-white text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-white hover:text-federico-black transition-all duration-300">
-                Şubelerimiz
+              <Link href="/hakkimizda" className="border-2 border-white text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-white hover:text-federico-black transition-all duration-300">
+                Hikayemiz
               </Link>
             </div>
           </motion.div>
@@ -93,7 +93,9 @@ const HomePage = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <blockquote className="text-3xl md:text-5xl font-serif text-federico-black leading-tight mb-8">
-              "Federico'da zaman acele etmez,<br />kahve soğumaz,<br />insanlar birbirine gülümser."
+              "Federico'da kahve aceleyle içilmez.<br />
+              Zaman biraz yavaşlar,<br />
+              o anın içinde bir bütünlük vardır."
             </blockquote>
             <p className="text-sm uppercase tracking-widest text-federico-gray">
               Marka Felsefemiz
@@ -135,6 +137,55 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* New Gürselpaşa Highlight */}
+      <section className="section-padding bg-federico-orange text-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs uppercase tracking-widest text-white opacity-80 mb-6">
+                Yeni Bir Ritüel Başlıyor
+              </p>
+              <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-tight">
+                Federico<br />Gürselpaşa
+              </h2>
+              <div className="space-y-6 text-base leading-relaxed opacity-90">
+                <p>
+                  Sadece kahve değil; günün her anına eşlik eden bir deneyim. Her sabah taze pişen 
+                  pastalar, dengeyle hazırlanmış salata ve bowl çeşitleri, şeffaf mutfakta özenle hazırlanan lezzetler.
+                </p>
+                <p>
+                  Federico artık bir kafe değil, yeni bir ritüelin adresi.
+                </p>
+              </div>
+              <Link href="/subelerimiz" className="inline-flex items-center gap-2 mt-8 text-sm uppercase tracking-widest text-white hover:opacity-80 transition-opacity duration-300 border-b border-white pb-1">
+                Keşfet
+                <ArrowRight size={16} />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative h-[500px]"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1501492673258-eecdb8fe3c00?w=800&q=80"
+                alt="Federico Gürselpaşa"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Story Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
@@ -149,20 +200,19 @@ const HomePage = () => {
                 2020'den Bugüne
               </p>
               <h2 className="text-4xl md:text-6xl font-serif mb-8 text-federico-black leading-tight">
-                Pandemiyle<br />Başlayan Bir<br />Kahve Hikayesi
+                Online Satışla<br />Başlayan Bir<br />Hikaye
               </h2>
               <div className="space-y-6 text-base text-federico-gray leading-relaxed">
                 <p>
-                  Federico'nun hikayesi, tüm dünyanın yavaşladığı, insanların evlerinde kendileriyle 
-                  baş başa kaldığı bir dönemde başladı.
+                  Federico'nun hikayesi, kahveye ulaşmanın en zor olduğu bir dönemde başladı. 
+                  Pandemiyle birlikte insanların evlerinden çıkamadığı günlerde, biz bu duruma farklı bir gözle baktık.
                 </p>
                 <p>
-                  Pandemi sürecinde, bir fincan iyi kahvenin yalnızca bir içecek değil; aynı zamanda 
-                  bir moral, bir ritüel, bir huzur anı olduğunu fark ettik.
+                  İyi kahveye ulaşmanın bir lüks değil, bir ihtiyaç olduğunu düşündük. İşte bu fikirle, 
+                  online satışla başladık.
                 </p>
                 <p>
-                  Federico, doğduğu şehir olan Adana'nın sıcaklığını, İtalyan kahve kültürünün 
-                  zarafetiyle birleştirdi.
+                  Bugün 4 şubemiz ve federicostore.com ile Türkiye'nin her yerine ulaşıyoruz.
                 </p>
               </div>
               <Link href="/hakkimizda" className="inline-flex items-center gap-2 mt-8 text-sm uppercase tracking-widest text-federico-black hover:text-federico-orange transition-colors duration-300">
@@ -222,14 +272,15 @@ const HomePage = () => {
               </h2>
               <div className="space-y-6 text-base text-gray-300 leading-relaxed">
                 <p>
-                  Federico, kahve tedarik zincirinde aracıların ötesine geçerek kendi özel 
-                  çekirdeklerini seçer ve kavurur.
+                  Dünyanın farklı bölgelerinden özenle seçilen yeşil çekirdekler, Adana'daki 
+                  kavurma tesisimizde küçük partiler halinde, her gün taze olarak hazırlanır.
                 </p>
                 <p>
-                  Her kavurma işlemi, tazeliği ve lezzeti ön planda tutacak şekilde günlük olarak yapılır.
+                  Özel harmanlar, single-origin yöresel kahveler, espresso ve filtre profilleri, 
+                  sezonluk mikro-lot seriler.
                 </p>
-                <p>
-                  Bizim için her fincan kahve bir coğrafyanın, bir emeğin, bir yolculuğun temsilcisidir.
+                <p className="text-white font-serif text-lg">
+                  Her biri, bulunduğu coğrafyanın hikayesini taşır.
                 </p>
               </div>
               <Link href="/online-satis" className="inline-flex items-center gap-2 mt-8 text-sm uppercase tracking-widest text-white hover:text-federico-orange transition-colors duration-300">
@@ -276,7 +327,7 @@ const HomePage = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-federico-orange text-white">
+      <section className="section-padding bg-federico-lightgray">
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -285,17 +336,17 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-tight">
+            <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-tight text-federico-black">
               Federico Ailesine<br />Katılın
             </h2>
-            <p className="text-lg mb-10 leading-relaxed opacity-90">
+            <p className="text-lg mb-10 leading-relaxed text-federico-gray">
               Franchise fırsatlarımızı keşfedin veya kariyer yolculuğunuza bizimle başlayın
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/franchise" className="bg-white text-federico-orange px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300">
+              <Link href="/franchise" className="bg-federico-black text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300">
                 Franchise
               </Link>
-              <Link href="/kariyer" className="border-2 border-white text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-white hover:text-federico-orange transition-all duration-300">
+              <Link href="/kariyer" className="border-2 border-federico-black text-federico-black px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-federico-black hover:text-white transition-all duration-300">
                 Kariyer
               </Link>
             </div>
