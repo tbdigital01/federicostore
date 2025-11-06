@@ -1,11 +1,35 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Store, ShoppingBag, Briefcase, Users } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { ArrowRight, Store, ShoppingBag, Briefcase, Users, ChevronLeft, ChevronRight } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const HomePage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const heroSlides = [
+    {
+      image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=80',
+      title: 'Kahvenin Ötesinde',
+      subtitle: 'Artık yaşamın içinde',
+      cta: { text: 'Gürselpaşa Yeni Şube', link: '/subelerimiz' },
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1920&q=80',
+      title: 'Yeni Bir Ritüel',
+      subtitle: 'Federico Gürselpaşa',
+      cta: { text: 'Keşfet', link: '/subelerimiz' },
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&q=80',
+      title: 'Özel Çekirdekler',
+      subtitle: 'Kendi kavurduğumuz, günlük taze',
+      cta: { text: 'Online Mağaza', link: '/online-satis' },
+    },
+  ]
+
   const quickLinks = [
     {
       icon: Store,
@@ -33,52 +57,104 @@ const HomePage = () => {
     },
   ]
 
-  const instagramImages = [
-    'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&q=80',
-    'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80',
-    'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80',
-    'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=80',
-    'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80',
-    'https://images.unsplash.com/photo-1501492673258-eecdb8fe3c00?w=400&q=80',
-  ]
+  // Auto slide
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [heroSlides.length])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
+  }
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-federico-black pt-20">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=80"
-            alt="Federico Coffee"
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
-        </div>
-        
-        <div className="container-custom relative z-10 px-6">
+      {/* Hero Slider */}
+      <section className="relative min-h-screen flex items-center bg-federico-black pt-20 overflow-hidden">
+        <AnimatePresence mode="wait">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="max-w-4xl"
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="absolute inset-0"
           >
-            <h1 className="text-7xl md:text-9xl font-serif mb-8 text-white leading-none">
-              Kahvenin<br />Ötesinde
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl">
-              Artık yaşamın içinde. Yeni bir ritüelin adresi.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/subelerimiz" className="bg-federico-orange text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300 inline-flex items-center gap-3">
-                Gürselpaşa Yeni Şube
+            <Image
+              src={heroSlides[currentSlide].image}
+              alt={heroSlides[currentSlide].title}
+              fill
+              className="object-cover opacity-30"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="container-custom relative z-10 px-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`content-${currentSlide}`}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="max-w-4xl"
+            >
+              <h1 className="text-7xl md:text-9xl font-serif mb-8 text-white leading-none">
+                {heroSlides[currentSlide].title}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl">
+                {heroSlides[currentSlide].subtitle}
+              </p>
+              <Link 
+                href={heroSlides[currentSlide].cta.link} 
+                className="bg-federico-orange text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-opacity-90 transition-all duration-300 inline-flex items-center gap-3"
+              >
+                {heroSlides[currentSlide].cta.text}
                 <ArrowRight size={18} />
               </Link>
-              <Link href="/hakkimizda" className="border-2 border-white text-white px-10 py-5 text-sm uppercase tracking-widest font-medium hover:bg-white hover:text-federico-black transition-all duration-300">
-                Hikayemiz
-              </Link>
-            </div>
-          </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Slider Controls */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-8">
+          <button
+            onClick={prevSlide}
+            className="w-12 h-12 border border-white border-opacity-50 text-white hover:bg-white hover:text-federico-black transition-all duration-300 flex items-center justify-center"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          
+          <div className="flex gap-3">
+            {heroSlides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-1 transition-all duration-300 ${
+                  index === currentSlide 
+                    ? 'w-12 bg-federico-orange' 
+                    : 'w-6 bg-white bg-opacity-50 hover:bg-opacity-100'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={nextSlide}
+            className="w-12 h-12 border border-white border-opacity-50 text-white hover:bg-white hover:text-federico-black transition-all duration-300 flex items-center justify-center"
+            aria-label="Next slide"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
       </section>
 
@@ -289,40 +365,6 @@ const HomePage = () => {
               </Link>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Instagram */}
-      <section className="py-0 bg-white">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-          {instagramImages.map((src, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="aspect-square relative overflow-hidden group cursor-pointer"
-            >
-              <Image
-                src={src}
-                alt={`Federico ${index + 1}`}
-                fill
-                className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
-              />
-              <div className="absolute inset-0 bg-federico-orange opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-            </motion.div>
-          ))}
-        </div>
-        <div className="text-center py-12">
-          <a
-            href="https://instagram.com/federicocoffee"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs uppercase tracking-widest text-federico-gray hover:text-federico-orange transition-colors"
-          >
-            @federicocoffee
-          </a>
         </div>
       </section>
 
