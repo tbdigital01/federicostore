@@ -114,56 +114,67 @@ const HomePage = () => {
       </section>
 
       {/* Features - What Makes Us Special */}
-      <section className="py-24 bg-white">
+      <section className="py-32 bg-white">
         <div className="container-custom px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-24"
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-federico-orange mb-4">
+            <p className="text-xs uppercase tracking-[0.3em] text-federico-orange mb-6">
               Neden Federico?
             </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-federico-black">
-              Kahvenin Ötesinde Deneyim
+            <h2 className="text-5xl md:text-7xl font-serif text-federico-black mb-8 leading-[1.1]">
+              Kahvenin Ötesinde<br />Deneyim
             </h2>
+            <p className="text-lg md:text-xl text-federico-gray max-w-3xl mx-auto leading-relaxed">
+              Her detayda mükemmellik arayışı, her fincanda bir hikaye
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
                 title: 'Şeffaf Mutfak',
-                desc: 'Her sabah taze pişen pastalar, özenle hazırlanan yemekler. Üretim sürecimiz tamamen görünür.',
-                icon: '🍰'
+                desc: 'Her sabah taze pişen pastalar, özenle hazırlanan yemekler. Üretim sürecimiz tamamen görünür, her adımda kalite kontrol altında.',
+                image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80'
               },
               {
                 title: 'Özel Çekirdekler',
-                desc: 'Guatemala, Etiyopya, Kolombiya\'dan özel olarak seçilmiş, günlük kavrulan kahveler.',
-                icon: '☕'
+                desc: 'Guatemala, Etiyopya, Kolombiya\'dan özel olarak seçilmiş, günlük kavrulan kahveler. Her fincan bir coğrafyanın hikayesini taşır.',
+                image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&q=80'
               },
               {
                 title: 'Federico Life',
-                desc: 'Sadece kahve değil; organik çaylar, smoothie\'ler, sağlıklı atıştırmalıklar ile tam bir yaşam.',
-                icon: '🌿'
+                desc: 'Sadece kahve değil; organik çaylar, smoothie\'ler, sağlıklı atıştırmalıklar ile tam bir yaşam deneyimi.',
+                image: 'https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=600&q=80'
               },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                transition={{ duration: 0.7, delay: index * 0.15 }}
                 viewport={{ once: true }}
-                className="text-center group"
+                className="group cursor-pointer"
               >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
+                <div className="relative h-80 mb-8 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-federico-black/80 via-federico-black/20 to-transparent" />
+                  <div className="absolute bottom-8 left-8 right-8">
+                    <h3 className="text-3xl font-serif text-white mb-2">
+                      {item.title}
+                    </h3>
+                  </div>
                 </div>
-                <h3 className="text-xl font-serif mb-4 text-federico-black">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-federico-gray leading-relaxed">
+                <p className="text-base text-federico-gray leading-relaxed px-2">
                   {item.desc}
                 </p>
               </motion.div>
