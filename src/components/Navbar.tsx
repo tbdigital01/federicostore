@@ -40,19 +40,19 @@ const Navbar = () => {
           <div className="flex-1 overflow-hidden">
             <div className="animate-marquee whitespace-nowrap">
               <span className="text-xs tracking-wider inline-block px-8">
-                ✨ Yeni Gürselpaşa Şubemiz Açıldı
+                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
               </span>
               <span className="text-xs tracking-wider inline-block px-8">
-                🌟 Özel Çekirdeklerimizi Keşfedin
+                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
               </span>
               <span className="text-xs tracking-wider inline-block px-8">
-                ☕ Federico Life - Kahvenin Ötesinde Yaşam
+                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
               </span>
               <span className="text-xs tracking-wider inline-block px-8">
-                ✨ Yeni Gürselpaşa Şubemiz Açıldı
+                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
               </span>
               <span className="text-xs tracking-wider inline-block px-8">
-                🌟 Özel Çekirdeklerimizi Keşfedin
+                ✨ Yeni bir ritüel başlıyor. federico yakında gürselpaşa da
               </span>
             </div>
           </div>
@@ -88,10 +88,10 @@ const Navbar = () => {
 
       {/* Main Navbar */}
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
+        className={`fixed w-full z-50 transition-all duration-300 border-b border-gray-200 ${
           isScrolled
-            ? 'top-0 bg-white/95 backdrop-blur-md shadow-sm'
-            : 'top-10 bg-white'
+            ? 'top-0 bg-white/95 backdrop-blur-md shadow-lg'
+            : 'top-10 bg-white shadow-sm'
         }`}
       >
         <div className="container-custom">
