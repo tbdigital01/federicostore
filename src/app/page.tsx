@@ -8,43 +8,109 @@ import { motion } from 'framer-motion'
 const HomePage = () => {
   return (
     <>
-      {/* Hero - Ultra Minimal */}
-      <section className="min-h-screen flex items-center justify-center bg-white pt-20 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="max-w-5xl mx-auto text-center"
-        >
-          <p className="text-xs uppercase tracking-[0.3em] text-federico-orange mb-12">
-            Federico Coffee — Adana
-          </p>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif mb-12 text-federico-black leading-[0.95] tracking-tight">
-            Kahvenin<br />Ötesinde
-          </h1>
-          <p className="text-lg md:text-xl text-federico-gray mb-16 max-w-2xl mx-auto leading-relaxed">
-            Artık yaşamın içinde. Gürselpaşa'daki yeni mekânımızda,<br />şeffaf mutfak ve günlük taze üretim.
-          </p>
-          <Link 
-            href="/subelerimiz" 
-            className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-federico-black hover:text-federico-orange transition-colors duration-300 border-b border-federico-black hover:border-federico-orange pb-2"
-          >
-            Keşfet
-            <ArrowRight size={16} />
-          </Link>
-        </motion.div>
-      </section>
+      {/* Hero - Coming Soon Announcement */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1501492673258-eecdb8fe3c00?w=1920&q=80"
+            alt="Federico Gürselpaşa"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-federico-black/80 via-federico-black/60 to-federico-black/40" />
+        </div>
 
-      {/* Image Break - Full Width */}
-      <section className="relative h-[70vh]">
-        <Image
-          src="https://images.unsplash.com/photo-1501492673258-eecdb8fe3c00?w=1920&q=80"
-          alt="Federico Gürselpaşa"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="inline-block mb-8"
+            >
+              <div className="px-6 py-2 border border-federico-orange/50 bg-federico-orange/10 backdrop-blur-sm">
+                <p className="text-xs uppercase tracking-[0.3em] text-federico-orange">
+                  Yakında
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-serif mb-8 leading-[1.1] tracking-tight"
+            >
+              Yeni Bir Ritüel<br />Başlıyor
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              className="text-xl md:text-2xl mb-4 text-white/90 font-light"
+            >
+              Federico Gürselpaşa
+            </motion.p>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.9 }}
+              className="text-base md:text-lg mb-12 text-white/70 max-w-2xl mx-auto leading-relaxed"
+            >
+              Şeffaf mutfak, taze pasta üretimi, özel kahve deneyimi.<br />
+              Kahvenin ötesinde bir yaşam alanı.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.1 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <Link 
+                href="/subelerimiz" 
+                className="group px-10 py-4 bg-federico-orange text-white text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-federico-black transition-all duration-300 flex items-center gap-3"
+              >
+                Mekânı Keşfet
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+              <Link 
+                href="/online-satis" 
+                className="px-10 py-4 border border-white text-white text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-federico-black transition-all duration-300"
+              >
+                Online Mağaza
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2"
+        >
+          <div className="flex flex-col items-center gap-2 text-white/50">
+            <p className="text-xs uppercase tracking-[0.2em]">Keşfet</p>
+            <div className="w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent animate-pulse" />
+          </div>
+        </motion.div>
       </section>
 
       {/* Statement */}
